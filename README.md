@@ -9,12 +9,43 @@ DevOpsFetch is a bash script tool designed to provide an overview of key system 
 
 Ensure the script is executed with root privileges.
 
-Steps:
+**Steps:**
 
-Copy Script: Copy devopsfetch.sh to /usr/local/bin and rename it to devopsfetch.
+- Clone this repository
+
+- Make `setup_devopsfetch.sh` script executable by running the following;
 
 ```
-sudo cp devopsfetch.sh /usr/local/bin/devopsfetch
-sudo chmod +x /usr/local/bin/devopsfetch
+chmod +x setup_devopsfetch.sh
+```
+- Install `setup_devopsfetch.sh` using root or sudo
 
+```
+sudo ./setup_devopsfetch.sh
+```
+- Check help options to view usage example
+
+```
+devopsfetch -h
+```
+
+## To Remove the Tool
+
+- Stop and Disable the service using the command below;
+```
+sudo systemctl stop devopsfetch.service
+sudo systemctl disable devopsfetch.service
+```
+- Remove the service
+```
+sudo rm /etc/systemd/system/devopsfetch.service
+```
+- Remove the script
+
+```
+sudo rm /usr/local/bin/devopsfetch 
+```
+Remove the log rotation setting
+```
+sudo rm /etc/logrotate.d/devopsfetch
 ```
